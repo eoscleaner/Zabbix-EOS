@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import datetime
 from sys import exit
@@ -60,7 +60,7 @@ class EOS(object):
             for k, v in data.items():
                 self.add_metrics("info."+k,v)
         else:
-            f.write(dbsize.status_code + " " + dbsize.text)
+            f.write(str(info.status_code) + " " + info.text)
 
     def get_db_size(self):
         dbsize_filter = ["free_bytes", "used_bytes", "size"]
@@ -76,7 +76,7 @@ class EOS(object):
             for k, v in data.items():
                 self.add_metrics("db_size."+k,v)
         else:
-            f.write(dbsize.status_code + " " + dbsize.text)
+            f.write(str(dbsize.status_code) + " " + dbsize.text)
 
     def close(self):
         """close connection to eos"""
